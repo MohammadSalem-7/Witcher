@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dama Store - المتجر الفاخر للخدمات والألعاب</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FFD700; 
+            --secondary-color: #1E3A8A; 
+            --accent-color: #ffffff; 
+            --card-bg: rgba(255, 215, 0, 0.1); 
+            --border-color: #FFD700; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #000000 100%);
+            color: var(--accent-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: transparent;
+        }
+
+        .welcome video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.5;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-color);
+            z-index: 1000;
+            transition: transform 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+.logo img {
+            height: 60px;
+            width: auto;
+            margin-right: 10px;
+        }
+        .logo i {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: #ffd705bf;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .welcome {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .welcome h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px var(--primary-color);
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .welcome p {
+            font-size: 1.6rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px var(--primary-color);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .services-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-product-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-product-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .service-product-card:hover i {
+            transform: scale(1.2);
+        }
+
+        .service-product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .service-product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-product-card:hover::before {
+            left: 100%;
+        }
+
+        .service-product-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-product-card a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 1rem;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        .team-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #ffd7000d;
+            text-align: center;
+            padding: 0.1rem;
+            border-top: 3px solid var(--primary-color);
+            margin-top: 5rem;
+        }
+
+        footer p {
+            color: var(--accent-color);
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: var(--accent-color);
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--primary-color); }
+            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+        }
+
+        @media (max-width: 768px) {
+            .welcome h1 {
+                font-size: 3rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#"><img src="https://k.top4top.io/p_3548pmkti1.png" alt="شعار Dama Store"></a>
+                Dama Store
+            </div>
+            <ul>
+                <li><b><i><a href="#welcome">الرئيسية</a></i></b></li>
+                <li><b><i><a href="#services-products">الخدمات والمنتجات</a></i></b></li>
+                <li><b><i><a href="#team">الفريق</a></i></b></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="welcome" class="welcome">
+        <video autoplay muted loop>
+            <source src="welcome-bg.mp4" type="video/mp4">
+        </video>
+        <h1 class="glow">مرحباً بك في Dama Store</h1>
+        <p>تجربة فاخرة للخدمات الرقمية وشحن الألعاب بأسلوب لا مثيل له!</p>
+        <a href="#services-products" class="cta-button">استكشف الآن</a>
+    </section>
+
+    <section id="services-products">
+        <h2>خدماتنا ومنتجاتنا</h2>
+        <div class="services-products">
+            <div class="service-product-card" data-tilt>
+                <i class="fas fa-paint-brush"></i>
+                <h3>تصميم الصور</h3>
+                <p>تصاميم جرافيكية احترافية مع تأثيرات بصرية مبهرة مثل الإنارات والبانرات.</p><br>
+                <a href="https://discord.gg/graphic-room" target="_blank"><b>انتقل إلى الروم</b></a>
+            </div>
+            <div class="service-product-card" data-tilt>
+                <i class="fas fa-code"></i>
+                <h3>خدمات برمجية</h3>
+                <p>تطوير مواقع إلكترونية، صفحات تسجيل، وتطبيقات مخصصة بأحدث التقنيات.</p><br>
+                <a href="https://discord.gg/coding-room" target="_blank"><b>انتقل إلى الروم</b></a>
+            </div>
+            <div class="service-product-card" data-tilt>
+                <i class="fas fa-cogs"></i>
+                <h3>سكريبتات MTA</h3>
+                <p>برمجة وتخصيص سكريبتات MTA مع دعم كامل لاحتياجاتك.</p><br>
+                <a href="https://discord.gg/mta-room" target="_blank"><b>انتقل إلى الروم</b></a>
+            </div>
+            <div class="service-product-card" data-tilt>
+                <i class="fas fa-gamepad"></i>
+                <h3>شحن جميع الألعاب</h3>
+                <p>PUBG, Fortnite, Roblox وأكثر مع شحن سريع وآمن.</p><br>
+                <a href="https://discord.gg/games-room" target="_blank"><b>انتقل إلى الروم</b></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2>فريقنا</h2>
+        <div class="team">
+            <div class="team-card" data-tilt>
+                <img src="team-member1.jpg" alt="عضو الفريق 1">
+                <i><a href="#"><h3>Eren</h3></a></i>
+                <p>مصمم جرافيكس رئيسي، خبير في التأثيرات البصرية.</p>
+            </div>
+            <div class="team-card" data-tilt>
+                <img src="https://l.top4top.io/p_3548xc2jt2.jpg" alt="عضو الفريق 2">
+               <i> <a href="#"><h3>Mohammad Salem</h3></a></i>
+                <p>مطورة برمجيات، متخصصة في المواقع والسكريبتات و البوتات و الادوات, مختبر اختراق </p>
+            </div>
+            <div class="team-card" data-tilt>
+                <img src="team-member3.jpg" alt="عضو الفريق 3">
+                <i><a href="#"><h3>xMazen</h3></a></i>
+                <p>مدير الشحنات، يضمن تجربة شحن سلسة وسريعة.</p>
+            </div>
+			<div class="team-card" data-tilt>
+                <img src="team-member4.jpg" alt="عضو الفريق 4">
+                <i><a href="#"><h3>xNinja</h3></a></i>
+                <p>مدير ومراقب المتجر.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dama Store. جميع الحقوق محفوظة. || Web Dev: <b><i>Mohammad Salem</i></b></p>
+        <div class="social-icons">
+            <a href="https://discord.gg/dama-store" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+    </footer>
+
+    <a href="https://discord.gg/dama-store" class="floating-btn" target="_blank">
+        <i class="fab fa-discord"></i>
+    </a>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#FFD700' },
+                shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#FFD700',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+
+        VanillaTilt.init(document.querySelectorAll(".service-product-card, .team-card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.5
+        });
+    </script>
+</body>
+</html>

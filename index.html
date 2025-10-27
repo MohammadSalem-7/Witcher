@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dama Store - المتجر الفاخر للخدمات والألعاب</title>
-	<link rel="icon" type="image/png" href="https://h.top4top.io/p_3559li1cc1.png">
+    <title>The Witcher - المتجر الفاخر للخدمات والألعاب</title>
+	<link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1359753471951372439/a6516141e31b3b00dd0fa5249804fe33.png?size=80&quality=lossless">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -355,7 +355,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="https://discord.gg/8pQhu2tmb2"><img src="https://h.top4top.io/p_3559li1cc1.png" alt="شعار Dama Store"></a>
+                <a href="https://discord.gg/8pQhu2tmb2"><img src="https://cdn.discordapp.com/icons/1359753471951372439/a6516141e31b3b00dd0fa5249804fe33.png?size=80&quality=lossless" alt="شعارThe Witcher"></a>
 
             </div>
             <ul>
@@ -370,7 +370,7 @@
         <video autoplay muted loop>
             <source src="https://h.top4top.io/m_3559ijjei1.mp4" type="video/mp4">
         </video>
-        <h1 class="glow">مرحباً بك في Dama Store</h1>
+        <h1 class="glow">مرحباً بك في The Witcher</h1>
         <p>تجربة فاخرة للخدمات الرقمية وشحن الألعاب بأسلوب لا مثيل له!</p>
         <a href="#services-products" class="cta-button">استكشف الآن</a>
     </section>
@@ -431,7 +431,7 @@
     background: darkred;
 }
 .low-spec-active {
-    background: #2ecc71 !important; /* أخضر لما يتفعل */
+    background: #2ecc71 !important;
     box-shadow: 0 0 15px #2ecc71 !important;
 }
 </style>
@@ -445,24 +445,21 @@ lowSpecBtn.addEventListener("click", () => {
     lowSpecBtn.classList.toggle("low-spec-active");
 
     if (lowSpecMode) {
-        // إيقاف الفيديو
         const video = document.querySelector(".welcome video");
         if (video) video.style.display = "none";
 
-        // إخفاء البارتكلز
         const particles = document.getElementById("particles-js");
         if (particles) particles.style.display = "none";
 
-        // تعطيل VanillaTilt
         document.querySelectorAll("[data-tilt]").forEach(el => {
             el.vanillaTilt.destroy();
         });
 
-        // إلغاء الـ glow animation
+n
         const glowText = document.querySelector(".welcome h1");
         if (glowText) glowText.style.animation = "none";
     } else {
-        location.reload(); // يرجع الموقع للوضع العادي بإعادة تحميل الصفحة
+        location.reload(); 
     }
 });
 </script>
@@ -496,7 +493,7 @@ lowSpecBtn.addEventListener("click", () => {
     </section>
 
     <footer>
-        <p>&copy; 2025 Dama Store. جميع الحقوق محفوظة. || Web Dev: <b><i>Mohammad Salem</i></b></p>
+        <p>&copy; 2025 The Witcher. جميع الحقوق محفوظة. || Web Dev: <b><i>Mohammad Salem</i></b></p>
         <div class="social-icons">
             <a href="https://discord.gg/8pQhu2tmb2" target="_blank"><i class="fab fa-discord"></i></a>
         </div>

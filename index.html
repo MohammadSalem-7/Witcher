@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #FFD700; 
+            --primary-color: #E5E4E2;      /* فضي فاخر */
+            --primary-gradient-start: #E5E4E2;
+            --primary-gradient-end: #C0C0C0;
             --secondary-color: #1E3A8A; 
             --accent-color: #ffffff; 
-            --card-bg: rgba(255, 215, 0, 0.1); 
-            --border-color: #FFD700; 
+            --card-bg: rgba(229, 228, 226, 0.15); 
+            --border-color: #E5E4E2; 
+            --glow-color: #E5E4E2;
         }
 
         * {
@@ -59,7 +62,7 @@
             color: var(--secondary-color);
             padding: 15px;
             border-radius: 50%;
-            box-shadow: 0 0 15px var(--primary-color);
+            box-shadow: 0 0 20px var(--glow-color);
             z-index: 1000;
             transition: transform 0.3s;
             font-size: 1.5rem;
@@ -67,6 +70,7 @@
 
         .floating-btn:hover {
             transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 0 30px var(--glow-color);
         }
 
         header {
@@ -93,12 +97,12 @@
             font-size: 2.2rem;
             font-weight: bold;
             color: var(--primary-color);
-            text-shadow: 0 0 15px var(--primary-color);
+            text-shadow: 0 0 15px var(--glow-color);
             display: flex;
             align-items: center;
         }
 
-.logo img {
+        .logo img {
             height: 60px;
             width: auto;
             margin-right: 10px;
@@ -118,7 +122,7 @@
         }
 
         nav ul li a {
-            color: #ffd705bf;
+            color: #e5e4e2bf;
             text-decoration: none;
             font-size: 1.1rem;
             transition: color 0.3s, text-shadow 0.3s;
@@ -126,7 +130,7 @@
 
         nav ul li a:hover {
             color: var(--primary-color);
-            text-shadow: 0 0 10px var(--primary-color);
+            text-shadow: 0 0 12px var(--glow-color);
         }
 
         .welcome {
@@ -142,10 +146,10 @@
         .welcome h1 {
             font-size: 4.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            background: linear-gradient(to right, var(--primary-gradient-start), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px var(--primary-color);
+            text-shadow: 0 0 25px var(--glow-color);
             animation: glow 1.5s ease-in-out infinite alternate;
         }
 
@@ -168,6 +172,7 @@
             display: inline-block;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 20px var(--glow-color);
         }
 
         .cta-button::before {
@@ -177,7 +182,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(229, 228, 226, 0.5), transparent);
             transition: left 0.5s;
         }
 
@@ -187,7 +192,7 @@
 
         .cta-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 25px var(--primary-color);
+            box-shadow: 0 0 35px var(--glow-color);
         }
 
         section {
@@ -201,7 +206,7 @@
             font-size: 3.2rem;
             margin-bottom: 3rem;
             color: var(--primary-color);
-            text-shadow: 0 0 15px var(--primary-color);
+            text-shadow: 0 0 15px var(--glow-color);
         }
 
         .services-products {
@@ -235,7 +240,7 @@
 
         .service-product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(229, 228, 226, 0.4);
         }
 
         .service-product-card::before {
@@ -245,7 +250,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(229, 228, 226, 0.35), transparent);
             transition: left 0.5s;
         }
 
@@ -259,7 +264,7 @@
         }
 
         .service-product-card a {
-            color: #ffd700;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
         }
@@ -282,7 +287,7 @@
 
         .team-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(229, 228, 226, 0.3);
         }
 
         .team-card img {
@@ -291,7 +296,7 @@
             border-radius: 50%;
             border: 3px solid var(--primary-color);
             margin-bottom: 1rem;
-            box-shadow: 0 0 15px var(--primary-color);
+            box-shadow: 0 0 15px var(--glow-color);
         }
 
         .team-card h3 {
@@ -300,10 +305,10 @@
         }
 
         footer {
-            background: #ffd7000d;
+            background: #e5e4e20d;
             text-align: center;
             padding: 0.1rem;
-            border-top: 3px solid var(--primary-color);
+ border-top: 3px solid var(--primary-color);
             margin-top: 5rem;
         }
 
@@ -329,8 +334,8 @@
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 10px var(--primary-color); }
-            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+            from { text-shadow: 0 0 10px var(--glow-color); }
+            to { text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color); }
         }
 
         @media (max-width: 768px) {
@@ -347,6 +352,31 @@
                 padding: 4rem 1rem;
             }
         }
+
+        /* زر وضع الأجهزة الضعيفة */
+        .low-spec-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: crimson;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 0 15px crimson;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .low-spec-btn:hover {
+            transform: scale(1.1);
+            background: darkred;
+        }
+        .low-spec-active {
+            background: #2ecc71 !important;
+            box-shadow: 0 0 15px #2ecc71 !important;
+        }
     </style>
 </head>
 <body>
@@ -356,7 +386,6 @@
         <nav>
             <div class="logo">
                 <a href="https://discord.gg/8pQhu2tmb2"><img src="https://cdn.discordapp.com/icons/1359753471951372439/a6516141e31b3b00dd0fa5249804fe33.png?size=80&quality=lossless" alt="شعار Witcher"></a>
-
             </div>
             <ul>
                 <li><b><i><a href="#welcome">الرئيسية</a></i></b></li>
@@ -368,7 +397,7 @@
 
     <section id="welcome" class="welcome">
         <video autoplay muted loop>
-            <source src="https://h.top4top.io/m_3559ijjei1.mp4" type="video/mp4">
+            <source src="https://k.top4top.io/m_358899ema1.mp4" type="video/mp4">
         </video>
         <h1 class="glow">مرحباً بك في Witcher</h1>
         <p>تجربة فاخرة للخدمات الرقمية وشحن الألعاب بأسلوب لا مثيل له!</p>
@@ -404,67 +433,11 @@
             </div>
         </div>
     </section>
-	<!---==========-->
-<!-- زر وضع الأجهزة الضعيفة -->
-<button id="lowSpecBtn" class="low-spec-btn" title="تفعيل وضع الأجهزة الضعيفة">
-    <i class="fas fa-bolt"></i>
-</button>
 
-<style>
-.low-spec-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: crimson;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1001;
-    box-shadow: 0 0 15px crimson;
-    transition: transform 0.3s, background 0.3s;
-}
-.low-spec-btn:hover {
-    transform: scale(1.1);
-    background: darkred;
-}
-.low-spec-active {
-    background: #2ecc71 !important;
-    box-shadow: 0 0 15px #2ecc71 !important;
-}
-</style>
-
-<script>
-const lowSpecBtn = document.getElementById("lowSpecBtn");
-let lowSpecMode = false;
-
-lowSpecBtn.addEventListener("click", () => {
-    lowSpecMode = !lowSpecMode;
-    lowSpecBtn.classList.toggle("low-spec-active");
-
-    if (lowSpecMode) {
-        const video = document.querySelector(".welcome video");
-        if (video) video.style.display = "none";
-
-        const particles = document.getElementById("particles-js");
-        if (particles) particles.style.display = "none";
-
-        document.querySelectorAll("[data-tilt]").forEach(el => {
-            el.vanillaTilt.destroy();
-        });
-
-n
-        const glowText = document.querySelector(".welcome h1");
-        if (glowText) glowText.style.animation = "none";
-    } else {
-        location.reload(); 
-    }
-});
-</script>
-
-
+    <!-- زر وضع الأجهزة الضعيفة -->
+    <button id="lowSpecBtn" class="low-spec-btn" title="تفعيل وضع الأجهزة الضعيفة">
+        <i class="fas fa-bolt"></i>
+    </button>
 
     <section id="team">
         <h2>فريقنا</h2>
@@ -484,7 +457,7 @@ n
                 <i><a href="https://discord.com/users/1005199629475922011"><h3>xMazen</h3></a></i>
                 <p>مدير الشحنات، يضمن تجربة شحن سلسة وسريعة.</p>
             </div>
-			<div class="team-card" data-tilt>
+            <div class="team-card" data-tilt>
                 <img src="https://h.top4top.io/p_3548z41sn2.png" alt="عضو الفريق 4">
                 <i><a href="https://discord.com/users/1139645453227532389"><h3>xNinja</h3></a></i>
                 <p>مدير ومراقب المتجر.</p>
@@ -505,6 +478,7 @@ n
     <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.7"></script>
 
     <script>
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -514,17 +488,18 @@ n
             });
         });
 
+        // Particles.js - فضي
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: '#FFD700' },
+                color: { value: '#E5E4E2' },
                 shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
                 opacity: { value: 0.5, random: true },
                 size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#FFD700',
+                    color: '#E5E4E2',
                     opacity: 0.4,
                     width: 1
                 },
@@ -553,11 +528,38 @@ n
             retina_detect: true
         });
 
+        // Vanilla Tilt
         VanillaTilt.init(document.querySelectorAll(".service-product-card, .team-card"), {
             max: 15,
             speed: 400,
             glare: true,
             "max-glare": 0.5
+        });
+
+        // Low Spec Mode
+        const lowSpecBtn = document.getElementById("lowSpecBtn");
+        let lowSpecMode = false;
+
+        lowSpecBtn.addEventListener("click", () => {
+            lowSpecMode = !lowSpecMode;
+            lowSpecBtn.classList.toggle("low-spec-active");
+
+            if (lowSpecMode) {
+                const video = document.querySelector(".welcome video");
+                if (video) video.style.display = "none";
+
+                const particles = document.getElementById("particles-js");
+                if (particles) particles.style.display = "none";
+
+                document.querySelectorAll("[data-tilt]").forEach(el => {
+                    if (el.vanillaTilt) el.vanillaTilt.destroy();
+                });
+
+                const glowText = document.querySelector(".welcome h1");
+                if (glowText) glowText.style.animation = "none";
+            } else {
+                location.reload(); 
+            }
         });
     </script>
 </body>
